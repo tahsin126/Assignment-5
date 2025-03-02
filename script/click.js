@@ -7,6 +7,8 @@ const historyButton = document.getElementById("History-btn");
 const discoverButton = document.getElementById("discover-btn");
 const colorButton = document.getElementById("color-change");
 
+
+
 const colors = [
     "bg-yellow-200",  
     "bg-purple-200",
@@ -41,10 +43,11 @@ function updateRealDate(){
 updateRealDate();
 
 completeButtons.forEach(function(button){
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function(){
         alert("Board updated successfully!");  
 
         button.disabled = true; 
+
 
         button.classList.remove("bg-blue-600");
         button.classList.add("bg-gray-400");
@@ -52,18 +55,20 @@ completeButtons.forEach(function(button){
         let remaining = parseInt(taskRemain.textContent);
         let completed = parseInt(completedTask.textContent);
 
-        if (remaining > 0) {
+
+
+        if (remaining > 0){
             taskRemain.textContent = remaining - 1;
         }
         completedTask.textContent = completed + 1;
 
-        if (taskRemain.textContent === "0") {
+        if (taskRemain.textContent === "0"){
             alert("Congrats!!! You have completed all the current tasks!"); 
         }
 
         let taskTitleElement = button.closest(".card").querySelector(".card-title");
         
-        if (taskTitleElement) {
+        if (taskTitleElement){
             let taskTitle = taskTitleElement.textContent;
             let currentTime = new Date().toLocaleTimeString();
 
@@ -78,7 +83,7 @@ completeButtons.forEach(function(button){
     });
 });
 
-historyButton.addEventListener("click", function () {
+ historyButton.addEventListener("click", function (){
     const taskLogs = document.querySelectorAll(".task-log");
     taskLogs.forEach((log) => {
         log.remove();
